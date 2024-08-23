@@ -19,13 +19,13 @@ app.MapGroup("/api/v1/brands")
    .WithTags("Brand APIs")
    .MapCatalogBrandEndpoints();
 
-//app.MapGroup("/api/v1/categories")
-//   .WithTags("Category APIs")
-//   .MapCatalogCategoryEndpoints();
+app.MapGroup("/api/v1/categories")
+   .WithTags("Category APIs")
+   .MapCatalogCategoryEndpoints();
 
-//app.MapGroup("/api/v1/items")
-//   .WithTags("Item APIs")
-//   .MapCatalogItemEndpoints();
+app.MapGroup("/api/v1/items")
+   .WithTags("Item APIs")
+   .MapCatalogItemEndpoints();
 
 app.Run();
 

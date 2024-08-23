@@ -30,7 +30,7 @@ public static class CatalogItemEndpoints
         if (!hasCategory)
         {
             return TypedResults.BadRequest($"A category Id is not valid.");
-        }
+        } 
 
         var hasBrand = await services.Context.CatalogBrands.AnyAsync(x => x.Id == itemToCreate.BrandId, cancellationToken);
         if (!hasBrand)
