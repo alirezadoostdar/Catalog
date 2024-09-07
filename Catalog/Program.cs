@@ -1,9 +1,25 @@
+using Catalog;
+using Catalog.Infrastructure.InternalServices;
+using Microsoft.Data.SqlClient;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddApplicationServices();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddHttpClient<ShortnerService>(configure =>
+{
+    var shortenOptions = builder.Configuration.GetSection(ShortnerOptions.SectionName).Get<ShortnerOptions>();
+    if (shortenOptions is null)
+    {
+        throw new ArgumentNullException(nameof(shortenOptions));
+    }
+    configure.BaseAddress = new Uri(shortenOptions.BaseUrl);
+});
+
+builder.Services.AddScoped<ShortnerService>();
 
 var app = builder.Build();
 

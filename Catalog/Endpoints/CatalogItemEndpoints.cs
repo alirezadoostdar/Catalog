@@ -1,4 +1,7 @@
-﻿namespace Catalog.Endpoints;
+﻿using Catalog.Infrastructure.InternalServices;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Catalog.Endpoints;
 public static class CatalogItemEndpoints
 {
     public static IEndpointRouteBuilder MapCatalogItemEndpoints(this IEndpointRouteBuilder app)
@@ -9,9 +12,48 @@ public static class CatalogItemEndpoints
         app.MapDelete("/{id:required}", DeleteItemById);
         app.MapGet("/{id:required}", GetItemById);
         app.MapGet("/", GetItems);
+        app.MapPost("/Remind", GetRemindItem);
 
         return app;
     }
+
+    public static async Task<Results<Ok,BadRequest<string>,NotFound<string>>> GetRemindItem(
+        [AsParameters]CatalogServices services,
+        [FromQuery(Name ="user_id")]Guid userId,
+        [FromQuery(Name = "id")] string slug,
+        IPublishEndpoint publishEndpoint,
+        CancellationToken cancellationToken,
+        ShortnerService shortnerService)
+    {
+        //attach xss id-
+        var item = await services.Context.CatalogItems
+              .FirstOrDefaultAsync(i => i.Slug == slug, cancellationToken);
+        if(item is null)
+        {
+            return TypedResults.NotFound($"Item with slug {slug} not found.");
+        }
+
+        if (item.AvailableStock > 0)
+        {
+            return TypedResults.NotFound($"good is already available.");
+        }
+
+        var templateMessage = """
+            dear user of digi kala
+            product x is now avalable
+            please check below link
+            y
+            """;
+        templateMessage.Replace("x", item.Name);
+        var detailUrl = $"";
+        var shorten = await shortnerService.GetShortnerUrl(detailUrl);
+        templateMessage.Replace("y", shorten);
+        var remindMessage = new CatalogRemindMessage(userId, slug, templateMessage, NotifyChannel.SMS);
+        await publishEndpoint.Publish(remindMessage);
+
+        return TypedResults.Ok();
+    }
+
 
     public static async Task<Results<Created, ValidationProblem, BadRequest<string>>> CreateItem(
         [AsParameters] CatalogServices services,

@@ -4,6 +4,7 @@ public sealed class CatalogOptions
 {
     public BrokerOptions BrokerOptions { get; set; } = null!;
     public MediaOptions MediaOptions { get; set; } = null!;
+    public InternalsServices InternalsServices { get; set; }
 }
 
 
@@ -24,4 +25,13 @@ public sealed class MediaOptions
     public required string Endpoint { get; set; }
 }
 
-
+public  class InternalsServices
+{
+    public required ShortnerOptions Shortner { get; set; }
+}
+public class ShortnerOptions
+{
+    public const string SectionName = "InternalsServices:Shortner";
+    public required string BaseUrl { get; set; }
+    public required string Shorten { get; set; }
+}
