@@ -143,3 +143,17 @@ D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\FluentValidation.Depe
 D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
 D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\RabbitMQ.Client.dll
 D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\System.Text.Json.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Elasticsearch.Net.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Formatting.Elasticsearch.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Sinks.Async.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Sinks.Elasticsearch.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Sinks.File.dll
+D:\OneDrive\System Design\Catalog\Catalog\bin\Debug\net8.0\Serilog.Sinks.PeriodicBatching.dll

@@ -5,7 +5,7 @@ using Microsoft.Data.SqlClient;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddApplicationServices();
-
+builder.LoggerConfigure();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

@@ -16,6 +16,10 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
+          "Serilog": "4.0.1",
+          "Serilog.AspNetCore": "8.0.2",
+          "Serilog.Sinks.Async": "2.0.0",
+          "Serilog.Sinks.Elasticsearch": "10.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -53,6 +57,19 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.10.3.0",
             "fileVersion": "1.1000.323.51804"
+          }
+        }
+      },
+      "Elasticsearch.Net/7.17.5": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.6.0",
+          "System.Buffers": "4.5.1",
+          "System.Diagnostics.DiagnosticSource": "8.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Elasticsearch.Net.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.17.5.0"
           }
         }
       },
@@ -310,7 +327,7 @@
           "Microsoft.CodeAnalysis.Common": "4.5.0",
           "System.Composition": "6.0.0",
           "System.IO.Pipelines": "6.0.3",
-          "System.Threading.Channels": "7.0.0"
+          "System.Threading.Channels": "8.0.0"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.CodeAnalysis.Workspaces.dll": {
@@ -360,7 +377,7 @@
           }
         }
       },
-      "Microsoft.CSharp/4.5.0": {},
+      "Microsoft.CSharp/4.6.0": {},
       "Microsoft.Data.SqlClient/5.1.5": {
         "dependencies": {
           "Azure.Identity": "1.10.3",
@@ -507,6 +524,11 @@
       "Microsoft.Extensions.Configuration.Abstractions/8.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "8.0.0"
+        }
+      },
+      "Microsoft.Extensions.Configuration.Binder/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0"
         }
       },
       "Microsoft.Extensions.DependencyInjection/8.0.0": {
@@ -659,7 +681,7 @@
       },
       "Microsoft.IdentityModel.Tokens/6.35.0": {
         "dependencies": {
-          "Microsoft.CSharp": "4.5.0",
+          "Microsoft.CSharp": "4.6.0",
           "Microsoft.IdentityModel.Logging": "6.35.0",
           "System.Security.Cryptography.Cng": "5.0.0"
         },
@@ -718,12 +740,173 @@
       "RabbitMQ.Client/6.8.1": {
         "dependencies": {
           "System.Memory": "4.5.5",
-          "System.Threading.Channels": "7.0.0"
+          "System.Threading.Channels": "8.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/RabbitMQ.Client.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.8.1.0"
+          }
+        }
+      },
+      "Serilog/4.0.1": {
+        "runtime": {
+          "lib/net8.0/Serilog.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
+      "Serilog.AspNetCore/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "Serilog": "4.0.1",
+          "Serilog.Extensions.Hosting": "8.0.0",
+          "Serilog.Formatting.Compact": "2.0.0",
+          "Serilog.Settings.Configuration": "8.0.2",
+          "Serilog.Sinks.Console": "5.0.0",
+          "Serilog.Sinks.Debug": "2.0.0",
+          "Serilog.Sinks.File": "5.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.AspNetCore.dll": {
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.2.0"
+          }
+        }
+      },
+      "Serilog.Extensions.Hosting/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Serilog": "4.0.1",
+          "Serilog.Extensions.Logging": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Extensions.Hosting.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "Serilog.Extensions.Logging/8.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Extensions.Logging.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "8.0.0.0"
+          }
+        }
+      },
+      "Serilog.Formatting.Compact/2.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/net7.0/Serilog.Formatting.Compact.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Serilog.Formatting.Elasticsearch/10.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Serilog.Formatting.Elasticsearch.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "Serilog.Settings.Configuration/8.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Binder": "8.0.0",
+          "Microsoft.Extensions.DependencyModel": "8.0.1",
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Settings.Configuration.dll": {
+            "assemblyVersion": "8.0.2.0",
+            "fileVersion": "8.0.2.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Async/2.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/Serilog.Sinks.Async.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Console/5.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/net7.0/Serilog.Sinks.Console.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Debug/2.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Serilog.Sinks.Debug.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.Elasticsearch/10.0.0": {
+        "dependencies": {
+          "Elasticsearch.Net": "7.17.5",
+          "Serilog": "4.0.1",
+          "Serilog.Formatting.Compact": "2.0.0",
+          "Serilog.Formatting.Elasticsearch": "10.0.0",
+          "Serilog.Sinks.File": "5.0.0",
+          "Serilog.Sinks.PeriodicBatching": "4.0.0",
+          "System.Diagnostics.DiagnosticSource": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Serilog.Sinks.Elasticsearch.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.File/5.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1"
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.Sinks.File.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
+      "Serilog.Sinks.PeriodicBatching/4.0.0": {
+        "dependencies": {
+          "Serilog": "4.0.1",
+          "System.Threading.Channels": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Serilog.Sinks.PeriodicBatching.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
           }
         }
       },
@@ -765,6 +948,7 @@
           }
         }
       },
+      "System.Buffers/4.5.1": {},
       "System.CodeDom/4.4.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -1000,7 +1184,7 @@
           }
         }
       },
-      "System.Threading.Channels/7.0.0": {},
+      "System.Threading.Channels/8.0.0": {},
       "System.Threading.Tasks.Extensions/4.5.4": {},
       "System.Windows.Extensions/6.0.0": {
         "dependencies": {
@@ -1042,6 +1226,13 @@
       "sha512": "sha512-l1Xm2MWOF2Mzcwuarlw8kWQXLZk3UeB55aQXVyjj23aBfDwOZ3gu5GP2kJ6KlmZeZv2TCzw7x4L3V36iNr3gww==",
       "path": "azure.identity/1.10.3",
       "hashPath": "azure.identity.1.10.3.nupkg.sha512"
+    },
+    "Elasticsearch.Net/7.17.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-orChsQi1Ceho/NyIylNOn6y4vuGcsbCfMZnCueNN0fzqYEGQmQdPfcVmsR5+3fwpXTgxCdjTUVmqOwvHpCSB+Q==",
+      "path": "elasticsearch.net/7.17.5",
+      "hashPath": "elasticsearch.net.7.17.5.nupkg.sha512"
     },
     "FluentValidation/11.9.2": {
       "type": "package",
@@ -1134,12 +1325,12 @@
       "path": "microsoft.codeanalysis.workspaces.common/4.5.0",
       "hashPath": "microsoft.codeanalysis.workspaces.common.4.5.0.nupkg.sha512"
     },
-    "Microsoft.CSharp/4.5.0": {
+    "Microsoft.CSharp/4.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
-      "path": "microsoft.csharp/4.5.0",
-      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
+      "sha512": "sha512-kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow==",
+      "path": "microsoft.csharp/4.6.0",
+      "hashPath": "microsoft.csharp.4.6.0.nupkg.sha512"
     },
     "Microsoft.Data.SqlClient/5.1.5": {
       "type": "package",
@@ -1231,6 +1422,13 @@
       "sha512": "sha512-3lE/iLSutpgX1CC0NOW70FJoGARRHbyKmG7dc0klnUZ9Dd9hS6N/POPWhKhMLCEuNN5nXEY5agmlFtH562vqhQ==",
       "path": "microsoft.extensions.configuration.abstractions/8.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Binder/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mBMoXLsr5s1y2zOHWmKsE9veDcx8h1x/c3rz4baEdQKTeDcmQAPNbB54Pi/lhFO3K431eEq6PFbMgLaa6PHFfA==",
+      "path": "microsoft.extensions.configuration.binder/8.0.0",
+      "hashPath": "microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.DependencyInjection/8.0.0": {
       "type": "package",
@@ -1421,6 +1619,97 @@
       "path": "rabbitmq.client/6.8.1",
       "hashPath": "rabbitmq.client.6.8.1.nupkg.sha512"
     },
+    "Serilog/4.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pzeDRXdpSLSsgBHpZcmpIDxqMy845Ab4s+dfnBg0sN9h8q/4Wo3vAoe0QCGPze1Q06EVtEPupS+UvLm8iXQmTQ==",
+      "path": "serilog/4.0.1",
+      "hashPath": "serilog.4.0.1.nupkg.sha512"
+    },
+    "Serilog.AspNetCore/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LNUd1bHsik2E7jSoCQFdeMGAWXjH7eUQ6c2pqm5vl+jGqvxdabYXxlrfaqApjtX5+BfAjW9jTA2EKmPwxknpIA==",
+      "path": "serilog.aspnetcore/8.0.2",
+      "hashPath": "serilog.aspnetcore.8.0.2.nupkg.sha512"
+    },
+    "Serilog.Extensions.Hosting/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-db0OcbWeSCvYQkHWu6n0v40N4kKaTAXNjlM3BKvcbwvNzYphQFcBR+36eQ/7hMMwOkJvAyLC2a9/jNdUL5NjtQ==",
+      "path": "serilog.extensions.hosting/8.0.0",
+      "hashPath": "serilog.extensions.hosting.8.0.0.nupkg.sha512"
+    },
+    "Serilog.Extensions.Logging/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YEAMWu1UnWgf1c1KP85l1SgXGfiVo0Rz6x08pCiPOIBt2Qe18tcZLvdBUuV5o1QHvrs8FAry9wTIhgBRtjIlEg==",
+      "path": "serilog.extensions.logging/8.0.0",
+      "hashPath": "serilog.extensions.logging.8.0.0.nupkg.sha512"
+    },
+    "Serilog.Formatting.Compact/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ob6z3ikzFM3D1xalhFuBIK1IOWf+XrQq+H4KeH4VqBcPpNcmUgZlRQ2h3Q7wvthpdZBBoY86qZOI2LCXNaLlNA==",
+      "path": "serilog.formatting.compact/2.0.0",
+      "hashPath": "serilog.formatting.compact.2.0.0.nupkg.sha512"
+    },
+    "Serilog.Formatting.Elasticsearch/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N9FsqRnl+rQOD2ldJMbEgPySwFDkUB8s6PCj5e92ryektgyZNFze3R2c1nwGOz6jhJ2aIzBIBNDM69CCzdHO0w==",
+      "path": "serilog.formatting.elasticsearch/10.0.0",
+      "hashPath": "serilog.formatting.elasticsearch.10.0.0.nupkg.sha512"
+    },
+    "Serilog.Settings.Configuration/8.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hn8HCAmupon7N0to20EwGeNJ+L3iRzjGzAHIl8+8CCFlEkVedHvS6NMYMb0VPNMsDgDwOj4cPBPV6Fc2hb0/7w==",
+      "path": "serilog.settings.configuration/8.0.2",
+      "hashPath": "serilog.settings.configuration.8.0.2.nupkg.sha512"
+    },
+    "Serilog.Sinks.Async/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a+kTyUUxPAOZWKJiNbDqCPMiP0BWBWzObyTpRmGLrgCecgc/YJ+HqYGjsQoS6Sj9cRVXB9hH5O1mTZ0DiewG2w==",
+      "path": "serilog.sinks.async/2.0.0",
+      "hashPath": "serilog.sinks.async.2.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Console/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IZ6bn79k+3SRXOBpwSOClUHikSkp2toGPCZ0teUkscv4dpDg9E2R2xVsNkLmwddE4OpNVO3N0xiYsAH556vN8Q==",
+      "path": "serilog.sinks.console/5.0.0",
+      "hashPath": "serilog.sinks.console.5.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Debug/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y6g3OBJ4JzTyyw16fDqtFcQ41qQAydnEvEqmXjhwhgjsnG/FaJ8GUqF5ldsC/bVkK8KYmqrPhDO+tm4dF6xx4A==",
+      "path": "serilog.sinks.debug/2.0.0",
+      "hashPath": "serilog.sinks.debug.2.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.Elasticsearch/10.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9MzR3UeQ/ZBu21K0gYHry4GFWeHFvizRwXnnDvoYc/ComnIzkrfkMNmiAzcMsyx3pHTVLuQSgHs209jM6opSjQ==",
+      "path": "serilog.sinks.elasticsearch/10.0.0",
+      "hashPath": "serilog.sinks.elasticsearch.10.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.File/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uwV5hdhWPwUH1szhO8PJpFiahqXmzPzJT/sOijH/kFgUx+cyoDTMM8MHD0adw9+Iem6itoibbUXHYslzXsLEAg==",
+      "path": "serilog.sinks.file/5.0.0",
+      "hashPath": "serilog.sinks.file.5.0.0.nupkg.sha512"
+    },
+    "Serilog.Sinks.PeriodicBatching/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kxg6QLNA1sDVqYEE7/6hCr/Ur3imS+qaoEqriQh07WTU1/b6jknnuVN1rWQpj67JpwAXXTmgI3Js9IGGktgumQ==",
+      "path": "serilog.sinks.periodicbatching/4.0.0",
+      "hashPath": "serilog.sinks.periodicbatching.4.0.0.nupkg.sha512"
+    },
     "Swashbuckle.AspNetCore/6.4.0": {
       "type": "package",
       "serviceable": true,
@@ -1448,6 +1737,13 @@
       "sha512": "sha512-1Hh3atb3pi8c+v7n4/3N80Jj8RvLOXgWxzix6w3OZhB7zBGRwsy7FWr4e3hwgPweSBpwfElqj4V4nkjYabH9nQ==",
       "path": "swashbuckle.aspnetcore.swaggerui/6.4.0",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+    },
+    "System.Buffers/4.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Rw7ijyl1qqRS0YQD/WycNst8hUUMgrMH4FCn1nNm27M4VxchZ1js3fVjQaANHO5f3sN4isvP4a+Met9Y4YomAg==",
+      "path": "system.buffers/4.5.1",
+      "hashPath": "system.buffers.4.5.1.nupkg.sha512"
     },
     "System.CodeDom/4.4.0": {
       "type": "package",
@@ -1666,12 +1962,12 @@
       "path": "system.text.json/8.0.4",
       "hashPath": "system.text.json.8.0.4.nupkg.sha512"
     },
-    "System.Threading.Channels/7.0.0": {
+    "System.Threading.Channels/8.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qmeeYNROMsONF6ndEZcIQ+VxR4Q/TX/7uIVLJqtwIWL7dDWeh0l1UIqgo4wYyjG//5lUNhwkLDSFl+pAWO6oiA==",
-      "path": "system.threading.channels/7.0.0",
-      "hashPath": "system.threading.channels.7.0.0.nupkg.sha512"
+      "sha512": "sha512-CMaFr7v+57RW7uZfZkPExsPB6ljwzhjACWW1gfU35Y56rk72B/Wu+sTqxVmGSk4SFUlPc3cjeKND0zktziyjBA==",
+      "path": "system.threading.channels/8.0.0",
+      "hashPath": "system.threading.channels.8.0.0.nupkg.sha512"
     },
     "System.Threading.Tasks.Extensions/4.5.4": {
       "type": "package",
